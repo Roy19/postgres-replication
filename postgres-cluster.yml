@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  db_leader:
+    image: postgres
+    hostname: db_leader
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
+    command:
+      - "postgres"
+      - "-c"
+      - "wal_level=logical"
+  
+  db_follower:
+    image: postgres
+    hostname: db_follower
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
